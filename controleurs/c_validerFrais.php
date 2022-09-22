@@ -5,7 +5,7 @@ $idUtilisateur = $_SESSION['idUtilisateur'];
 switch($action){
     case 'voirValiderFrais':{
         $lesVisiteurs=$pdo->getVisiteurs();
-        $lesMois=$pdo->getLesMoisDisponibles($idUtilisateur);
+        $lesMois=$pdo->getLesMoisDisponibles('a55');
         include("vues/v_validerFrais.php");
 	}
 }
