@@ -4,7 +4,10 @@ $action = $_REQUEST['action'];
 $idUtilisateur = $_SESSION['idUtilisateur'];
 switch($action){
     case 'voirValiderFrais':{
-
+        $lesVisiteurs=$pdo->getVisiteurs();
+        $lesMois=$pdo->getLesMoisDisponibles($idUtilisateur);
         include("vues/v_validerFrais.php");
 	}
 }
+$lesVisiteurs = $pdo->getVisiteurs();
+?>
