@@ -1,13 +1,9 @@
-
-<div>
+<?php if($etat) { ?>
+<div class="corpsform">
     <h3>Fiche de frais du mois <?php echo $numMois . "-" . $numAnnee ?> :
     </h3>
     <div class="encadre">
-        <p>
-            Etat : <?php echo $libEtat ?> depuis le <?php echo $dateModif ?> <br> Montant validé : <?php echo $montantValide ?>
-
-
-        </p>
+        <p>Etat : <?= $etat["libelle"] ?> depuis le <?= $date_fiche ?> <br> Montant validé : <?= $etat["montant"] ?></p>
         <table class="listeLegere">
             <caption>Eléments forfaitisés </caption>
             <tr>
@@ -31,13 +27,20 @@
                 ?>
             </tr>
         </table>
+        <div class="piedForm">
+            <p>
+                <input id="ok" type="submit" value="Valider" size="20" />
+                <input id="annuler" type="reset" value="Effacer" size="20" />
+            </p>
+        </div>
         <table class="listeLegere">
             <caption>Descriptif des éléments hors forfait -<?php echo $nbJustificatifs ?> justificatifs reçus -
             </caption>
             <tr>
                 <th class="date">Date</th>
                 <th class="libelle">Libellé</th>
-                <th class='montant'>Montant</th>
+                <th class="montant">Montant</th>
+                <th colspan="2" class="action">Action</th>
             </tr>
             <?php
             foreach ($lesFraisHorsForfait as $unFraisHorsForfait) {
@@ -49,6 +52,8 @@
                     <td><?php echo $date ?></td>
                     <td><?php echo $libelle ?></td>
                     <td><?php echo $montant ?></td>
+                    <td><a href="index.php?uc=geraisFrais&action=supprimerFrais"> supprimer</td>
+                    <td><a href="index.php?uc=geraisFrais&action=validerMajFraisForfait"> reporter</td>
                 </tr>
             <?php
             }
@@ -56,3 +61,4 @@
         </table>
     </div>
 </div>
+<?php } ?>

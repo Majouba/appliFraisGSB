@@ -18,10 +18,10 @@
                         $visiteurId = $unVisiteur['id'];
                         if ($mois == $moisASelectionner) {
                     ?>
-                            <option selected value=""><?php echo $visiteurPrenom . " " . $visiteurNom ?> </option>
+                            <option selected value="<?= $visiteurId ?>"><?php echo $visiteurPrenom . " " . $visiteurNom ?> </option>
                         <?php
                         } else { ?>
-                            <option value=""><?php echo $visiteurPrenom . " " . $visiteurNom ?> </option>
+                            <option value="<?= $visiteurId ?>"><?php echo $visiteurPrenom . " " . $visiteurNom ?> </option>
                     <?php
                         }
                     }
@@ -52,10 +52,9 @@
 
                 </select>
             </p>
-
             <div class="piedForm">
                 <p>
                     <input id="ok" type="submit" value="Valider" size="20" />
                 </p>
             </div>
-        </div>
+    </div>
